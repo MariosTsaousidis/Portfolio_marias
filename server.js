@@ -24,14 +24,16 @@ const contactLimiter = rateLimit({
 });
 
 /* ==========================================
-   Email Transporter
+   Email Transporter  (Brevo SMTP)
    ========================================== */
 function createTransporter() {
     return nodemailer.createTransport({
-        service: 'gmail',
+        host:   'smtp-relay.brevo.com',
+        port:   587,
+        secure: false,                     // TLS via STARTTLS
         auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS   // Gmail App Password
+            user: process.env.EMAIL_USER,  // Brevo login email
+            pass: process.env.EMAIL_PASS   // Brevo SMTP Key
         }
     });
 }
@@ -178,7 +180,6 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
 
     try {
         const transporter = createTransporter();
-        console.log("Sending email...");
 
         // 1. Notification email to Maria
         await transporter.sendMail({
@@ -188,7 +189,6 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
             subject: `📬 Portfolio: ${subject || 'Νέο μήνυμα'} — από ${name}`,
             html: buildNotificationEmail({ name, email, subject, message })
         });
-        console.log("Email sent!");
 
         // 2. Auto-reply to the visitor
         await transporter.sendMail({
@@ -202,7 +202,10 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
         res.json({ success: true, message: 'Το μήνυμα εστάλη επιτυχώς!' });
 
     } catch (err) {
-        console.error('[Contact] Email error:', err.message);
+        // Log full error so Railway Logs show the real problem
+        console.error('[Contact] Email error code:',    err.code);
+        console.error('[Contact] Email error message:', err.message);
+        console.error('[Contact] Email error response:', err.response || '—');
         res.status(500).json({ error: 'Αποτυχία αποστολής. Δοκίμασε ξανά.' });
     }
 });
