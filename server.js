@@ -178,6 +178,7 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
 
     try {
         const transporter = createTransporter();
+        console.log("Sending email...");
 
         // 1. Notification email to Maria
         await transporter.sendMail({
@@ -187,6 +188,7 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
             subject: `📬 Portfolio: ${subject || 'Νέο μήνυμα'} — από ${name}`,
             html: buildNotificationEmail({ name, email, subject, message })
         });
+        console.log("Email sent!");
 
         // 2. Auto-reply to the visitor
         await transporter.sendMail({
