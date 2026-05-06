@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maria — Graphic Designer & Animator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="loading">
+
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Loader -->
+<div id="loader">
+    <div class="loader-inner">
+        <div class="loader-line loader-line-left"></div>
+        <div class="loader-content">
+            <span class="loader-name">MARIA</span>
+            <div class="loader-bar"><div class="loader-bar-fill" id="loaderBar"></div></div>
+            <span class="loader-tagline">Portfolio 2024</span>
+        </div>
+        <div class="loader-line loader-line-right"></div>
+    </div>
+</div>
+
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- Noise Grain Overlay -->
+<div class="noise-overlay"></div>
+
+<!-- Navigation -->
+<nav id="navbar">
+    <div class="nav-logo">
+        <a href="#hero">M<span class="accent-yellow">.</span></a>
+    </div>
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#works">Works</a>
+        <a href="#skills">Skills</a>
+        <a href="#cv">CV</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-cta">
+        <a href="#contact" class="btn-outline magnetic">Let's Talk</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#about">About</a>
+    <a href="#works">Works</a>
+    <a href="#skills">Skills</a>
+    <a href="#cv">CV</a>
+    <a href="#contact">Contact</a>
+</div>
+
+<!-- ========== HERO ========== -->
+<section id="hero">
+    <canvas id="particleCanvas"></canvas>
+
+    <div class="hero-bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <div class="hero-content">
+        <div class="hero-badge">
+            <span class="badge-dot"></span>
+            Available for Projects
+        </div>
+        <div class="hero-title-wrap">
+            <h1 class="hero-title">Maria</h1>
+            <div class="hero-title-outline">DESIGN</div>
+        </div>
+        <p class="hero-subtitle">
+            <span id="typewriter"></span><span class="cursor-blink">|</span>
+        </p>
+        <p class="hero-description">
+            Graphic Designer & Animator crafting visual stories<br>
+            that move, inspire, and leave a mark.
+        </p>
+        <div class="hero-cta">
+            <a href="#works" class="btn-primary magnetic">
+                <span>View My Work</span>
+                <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#contact" class="btn-ghost magnetic">Get in Touch</a>
+        </div>
+        <div class="hero-stats">
+            <div class="stat">
+                <span class="stat-num" data-count="25">0</span><span class="stat-plus">+</span>
+                <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <span class="stat-num" data-count="3">0</span>
+                <span class="stat-label">Years Exp.</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <span class="stat-num" data-count="15">0</span><span class="stat-plus">+</span>
+                <span class="stat-label">Clients</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-scroll">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+    </div>
+
+    <div class="hero-social">
+        <a href="#" class="social-link">Behance</a>
+        <a href="#" class="social-link">Instagram</a>
+        <a href="#" class="social-link">LinkedIn</a>
+    </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-image-wrap">
+                <div class="about-image-container">
+                    <div class="about-img-placeholder">
+                        <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                            <defs>
+                                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#1a1a1a"/>
+                                    <stop offset="100%" style="stop-color:#111111"/>
+                                </linearGradient>
+                                <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#F7C948;stop-opacity:0.6"/>
+                                    <stop offset="100%" style="stop-color:#FF4D8D;stop-opacity:0.6"/>
+                                </linearGradient>
+                            </defs>
+                            <rect width="400" height="500" fill="url(#grad1)"/>
+                            <!-- Geometric portrait suggestion -->
+                            <circle cx="200" cy="180" r="140" fill="none" stroke="url(#grad2)" stroke-width="0.5" opacity="0.4"/>
+                            <circle cx="200" cy="180" r="100" fill="none" stroke="url(#grad2)" stroke-width="0.5" opacity="0.6"/>
+                            <circle cx="200" cy="180" r="60" fill="#1e1e1e" stroke="url(#grad2)" stroke-width="1" opacity="0.8"/>
+                            <!-- Cross lines -->
+                            <line x1="60" y1="180" x2="340" y2="180" stroke="rgba(247,201,72,0.15)" stroke-width="0.5"/>
+                            <line x1="200" y1="40" x2="200" y2="460" stroke="rgba(247,201,72,0.15)" stroke-width="0.5"/>
+                            <!-- Diamond -->
+                            <polygon points="200,80 280,180 200,280 120,180" fill="none" stroke="rgba(255,77,141,0.3)" stroke-width="1"/>
+                            <!-- Letter M -->
+                            <text x="200" y="196" text-anchor="middle" fill="rgba(240,240,240,0.9)" font-family="Space Grotesk" font-size="40" font-weight="700">M</text>
+                            <!-- Bottom text -->
+                            <rect x="60" y="390" width="280" height="1" fill="rgba(247,201,72,0.2)"/>
+                            <text x="200" y="420" text-anchor="middle" fill="rgba(247,201,72,0.7)" font-family="JetBrains Mono" font-size="11" letter-spacing="4">MARIA</text>
+                            <text x="200" y="440" text-anchor="middle" fill="rgba(136,136,136,0.6)" font-family="Space Grotesk" font-size="10" letter-spacing="2">GRAPHIC DESIGNER</text>
+                            <!-- Corner accents -->
+                            <line x1="60" y1="60" x2="100" y2="60" stroke="rgba(247,201,72,0.4)" stroke-width="1"/>
+                            <line x1="60" y1="60" x2="60" y2="100" stroke="rgba(247,201,72,0.4)" stroke-width="1"/>
+                            <line x1="340" y1="60" x2="300" y2="60" stroke="rgba(255,77,141,0.4)" stroke-width="1"/>
+                            <line x1="340" y1="60" x2="340" y2="100" stroke="rgba(255,77,141,0.4)" stroke-width="1"/>
+                            <line x1="60" y1="460" x2="100" y2="460" stroke="rgba(247,201,72,0.4)" stroke-width="1"/>
+                            <line x1="60" y1="460" x2="60" y2="420" stroke="rgba(247,201,72,0.4)" stroke-width="1"/>
+                            <line x1="340" y1="460" x2="300" y2="460" stroke="rgba(255,77,141,0.4)" stroke-width="1"/>
+                            <line x1="340" y1="460" x2="340" y2="420" stroke="rgba(255,77,141,0.4)" stroke-width="1"/>
+                        </svg>
+                    </div>
+                    <div class="about-img-accent-1"></div>
+                    <div class="about-img-accent-2"></div>
+                    <div class="about-exp-badge">
+                        <span class="exp-num">3+</span>
+                        <span class="exp-text">Years of<br>Experience</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-content">
+                <div class="section-label">— About Me</div>
+                <h2 class="section-title">Creating visual<br>experiences that<br><em>resonate</em></h2>
+                <p class="about-text">
+                    Είμαι γραφίστρια και animator με πάθος για τη δημιουργία
+                    οπτικών ιστοριών που αφήνουν εντύπωση. Σπουδάζω Γραφιστική
+                    & Animation και συνδυάζω τη δημιουργικότητα με την τεχνική
+                    αρτιότητα για να φτιάχνω έργα που μιλούν από μόνα τους.
+                </p>
+                <p class="about-text">
+                    Από brand identities και motion graphics μέχρι UI design
+                    και 3D animation — κάθε project είναι μια νέα ευκαιρία να
+                    σπρώξω τα όρια της δημιουργικότητας.
+                </p>
+                <div class="about-tags">
+                    <span class="tag">Motion Design</span>
+                    <span class="tag">Brand Identity</span>
+                    <span class="tag">Typography</span>
+                    <span class="tag">3D Animation</span>
+                    <span class="tag">UI/UX</span>
+                    <span class="tag">Art Direction</span>
+                </div>
+                <a href="#works" class="btn-primary magnetic">
+                    <span>See My Projects</span>
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== WORKS ========== -->
+<section id="works">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">— Selected Works</div>
+            <h2 class="section-title">My Projects</h2>
+        </div>
+
+        <div class="works-filter">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="branding">Branding</button>
+            <button class="filter-btn" data-filter="motion">Motion</button>
+            <button class="filter-btn" data-filter="ui">UI Design</button>
+            <button class="filter-btn" data-filter="3d">3D</button>
+        </div>
+
+        <div class="works-grid" id="worksGrid">
+            <!-- Card 1 -->
+            <div class="work-card" data-category="branding">
+                <div class="work-card-inner">
+                    <div class="work-placeholder" style="background:linear-gradient(135deg,#1a0a2e,#6b21a8,#FF4D8D)">
+                        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="200" cy="150" r="100" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+                            <circle cx="200" cy="150" r="70" fill="none" stroke="rgba(255,77,141,0.4)" stroke-width="1"/>
+                            <circle cx="200" cy="150" r="40" fill="rgba(255,77,141,0.2)"/>
+                            <circle cx="200" cy="150" r="5" fill="rgba(255,255,255,0.8)"/>
+                            <text x="200" y="268" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11" font-family="Space Grotesk" letter-spacing="4">COSMOS BRAND</text>
+                        </svg>
+                    </div>
+                    <div class="work-overlay">
+                        <div class="work-overlay-content">
+                            <span class="work-category-label">Brand Identity</span>
+                            <h3 class="work-title">Cosmos Brand</h3>
+                            <p class="work-desc">Complete brand identity for a luxury cosmetics brand</p>
+                            <a href="#" class="work-link">View Project →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 — wide -->
+            <div class="work-card work-card--wide" data-category="motion">
+                <div class="work-card-inner">
+                    <div class="work-placeholder" style="background:linear-gradient(135deg,#0f1a0f,#1a2e1a,#2d4a1e)">
+                        <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+                            <g opacity="0.85">
+                                <rect x="40" y="120" width="18" height="80" rx="2" fill="#F7C948"/>
+                                <rect x="70" y="90" width="18" height="110" rx="2" fill="#F7C948" opacity="0.9"/>
+                                <rect x="100" y="60" width="18" height="140" rx="2" fill="#F7C948"/>
+                                <rect x="130" y="100" width="18" height="100" rx="2" fill="#F7C948" opacity="0.7"/>
+                                <rect x="160" y="75" width="18" height="125" rx="2" fill="#F7C948" opacity="0.85"/>
+                                <rect x="190" y="110" width="18" height="90" rx="2" fill="#F7C948" opacity="0.6"/>
+                            </g>
+                            <line x1="260" y1="50" x2="260" y2="250" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                            <g opacity="0.85">
+                                <rect x="290" y="130" width="18" height="70" rx="2" fill="#FF4D8D"/>
+                                <rect x="320" y="80" width="18" height="120" rx="2" fill="#FF4D8D" opacity="0.9"/>
+                                <rect x="350" y="55" width="18" height="145" rx="2" fill="#FF4D8D"/>
+                                <rect x="380" y="95" width="18" height="105" rx="2" fill="#FF4D8D" opacity="0.7"/>
+                                <rect x="410" y="70" width="18" height="130" rx="2" fill="#FF4D8D" opacity="0.85"/>
+                                <rect x="440" y="115" width="18" height="85" rx="2" fill="#FF4D8D" opacity="0.6"/>
+                                <rect x="470" y="88" width="18" height="112" rx="2" fill="#FF4D8D" opacity="0.75"/>
+                            </g>
+                            <text x="300" y="285" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="11" font-family="Space Grotesk" letter-spacing="6">PULSE / MOTION GRAPHICS</text>
+                        </svg>
+                    </div>
+                    <div class="work-overlay">
+                        <div class="work-overlay-content">
+                            <span class="work-category-label">Motion Graphics</span>
+                            <h3 class="work-title">Pulse</h3>
+                            <p class="work-desc">Dynamic motion graphics for a music festival identity</p>
+                            <a href="#" class="work-link">View Project →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="work-card" data-category="ui">
+                <div class="work-card-inner">
+                    <div class="work-placeholder" style="background:linear-gradient(135deg,#050d1a,#0d2137,#0d3754)">
+                        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="90" y="30" width="220" height="240" rx="12" fill="rgba(0,0,0,0.5)" stroke="rgba(0,180,255,0.3)" stroke-width="1"/>
+                            <rect x="105" y="48" width="190" height="110" rx="6" fill="rgba(0,140,255,0.08)" stroke="rgba(0,180,255,0.2)" stroke-width="0.5"/>
+                            <circle cx="150" cy="103" r="28" fill="rgba(0,180,255,0.15)" stroke="rgba(0,180,255,0.3)" stroke-width="1"/>
+                            <rect x="190" y="85" width="80" height="8" rx="3" fill="rgba(255,255,255,0.4)"/>
+                            <rect x="190" y="100" width="55" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+                            <rect x="190" y="113" width="65" height="6" rx="3" fill="rgba(255,255,255,0.15)"/>
+                            <rect x="105" y="172" width="85" height="30" rx="6" fill="rgba(0,180,255,0.2)" stroke="rgba(0,180,255,0.4)" stroke-width="0.5"/>
+                            <rect x="200" y="172" width="95" height="30" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+                            <rect x="105" y="215" width="190" height="8" rx="3" fill="rgba(255,255,255,0.08)"/>
+                            <rect x="105" y="230" width="140" height="8" rx="3" fill="rgba(255,255,255,0.05)"/>
+                            <text x="200" y="285" text-anchor="middle" fill="rgba(0,180,255,0.5)" font-size="10" font-family="Space Grotesk" letter-spacing="4">NOIR APP UI</text>
+                        </svg>
+                    </div>
+                    <div class="work-overlay">
+                        <div class="work-overlay-content">
+                            <span class="work-category-label">UI Design</span>
+                            <h3 class="work-title">Noir App</h3>
+                            <p class="work-desc">Dark mode UI design for a lifestyle application</p>
+                            <a href="#" class="work-link">View Project →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 — wide -->
+            <div class="work-card work-card--wide" data-category="branding">
+                <div class="work-card-inner">
+                    <div class="work-placeholder" style="background:linear-gradient(135deg,#0d1208,#1a2a0a,#263d10)">
+                        <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+                            <text x="300" y="160" text-anchor="middle" fill="rgba(168,255,100,0.85)" font-size="100" font-family="Playfair Display" font-style="italic" font-weight="400">Urban</text>
+                            <text x="300" y="196" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="13" font-family="Space Grotesk" letter-spacing="10">POSTER SERIES</text>
+                            <line x1="80" y1="208" x2="520" y2="208" stroke="rgba(168,255,100,0.2)" stroke-width="0.5"/>
+                            <line x1="80" y1="75" x2="520" y2="75" stroke="rgba(168,255,100,0.2)" stroke-width="0.5"/>
+                            <text x="80" y="70" fill="rgba(168,255,100,0.3)" font-size="10" font-family="JetBrains Mono">001</text>
+                            <text x="510" y="70" text-anchor="end" fill="rgba(168,255,100,0.3)" font-size="10" font-family="JetBrains Mono">2024</text>
+                        </svg>
+                    </div>
+                    <div class="work-overlay">
+                        <div class="work-overlay-content">
+                            <span class="work-category-label">Poster Design</span>
+                            <h3 class="work-title">Urban Series</h3>
+                            <p class="work-desc">Poster series for an urban culture exhibition</p>
+                            <a href="#" class="work-link">View Project →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="work-card" data-category="3d">
+                <div class="work-card-inner">
+                    <div class="work-placeholder" style="background:linear-gradient(135deg,#150508,#2d0a10,#4a1218)">
+                        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                            <polygon points="200,50 330,260 70,260" fill="none" stroke="rgba(255,80,40,0.7)" stroke-width="1.5"/>
+                            <polygon points="200,100 295,245 105,245" fill="none" stroke="rgba(255,80,40,0.4)" stroke-width="1"/>
+                            <polygon points="200,140 265,235 135,235" fill="rgba(255,80,40,0.06)" stroke="rgba(255,80,40,0.25)" stroke-width="0.5"/>
+                            <polygon points="200,170 240,225 160,225" fill="rgba(255,80,40,0.1)" stroke="rgba(255,80,40,0.3)" stroke-width="0.5"/>
+                            <circle cx="200" cy="220" r="4" fill="rgba(255,120,60,0.9)"/>
+                            <line x1="200" y1="50" x2="200" y2="220" stroke="rgba(255,80,40,0.15)" stroke-width="0.5" stroke-dasharray="4,4"/>
+                            <text x="200" y="285" text-anchor="middle" fill="rgba(255,80,40,0.5)" font-size="10" font-family="Space Grotesk" letter-spacing="5">VOID — 3D</text>
+                        </svg>
+                    </div>
+                    <div class="work-overlay">
+                        <div class="work-overlay-content">
+                            <span class="work-category-label">3D Animation</span>
+                            <h3 class="work-title">Void</h3>
+                            <p class="work-desc">Abstract 3D animation exploring geometric forms</p>
+                            <a href="#" class="work-link">View Project →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="work-card" data-category="motion">
+                <div class="work-card-inner">
+                    <div class="work-placeholder" style="background:linear-gradient(135deg,#12051a,#260d38,#3d1557)">
+                        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="200" cy="145" r="105" fill="none" stroke="rgba(255,77,141,0.2)" stroke-width="30"/>
+                            <circle cx="200" cy="145" r="70" fill="none" stroke="rgba(255,77,141,0.35)" stroke-width="20"/>
+                            <circle cx="200" cy="145" r="35" fill="none" stroke="rgba(255,77,141,0.5)" stroke-width="12"/>
+                            <circle cx="200" cy="145" r="8" fill="rgba(255,77,141,0.9)"/>
+                            <circle cx="200" cy="145" r="3" fill="white"/>
+                            <text x="200" y="278" text-anchor="middle" fill="rgba(255,77,141,0.5)" font-size="10" font-family="Space Grotesk" letter-spacing="5">DREAMS</text>
+                        </svg>
+                    </div>
+                    <div class="work-overlay">
+                        <div class="work-overlay-content">
+                            <span class="work-category-label">Animation</span>
+                            <h3 class="work-title">Dreams</h3>
+                            <p class="work-desc">Surrealist animation short film</p>
+                            <a href="#" class="work-link">View Project →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== MARQUEE ========== -->
+<div class="marquee-section">
+    <div class="marquee-track">
+        <span>Design</span><span class="marquee-dot">✦</span>
+        <span>Animation</span><span class="marquee-dot">✦</span>
+        <span>Branding</span><span class="marquee-dot">✦</span>
+        <span>Motion</span><span class="marquee-dot">✦</span>
+        <span>Creative</span><span class="marquee-dot">✦</span>
+        <span>Visual Art</span><span class="marquee-dot">✦</span>
+        <span>Design</span><span class="marquee-dot">✦</span>
+        <span>Animation</span><span class="marquee-dot">✦</span>
+        <span>Branding</span><span class="marquee-dot">✦</span>
+        <span>Motion</span><span class="marquee-dot">✦</span>
+        <span>Creative</span><span class="marquee-dot">✦</span>
+        <span>Visual Art</span><span class="marquee-dot">✦</span>
+    </div>
+</div>
+
+<!-- ========== SKILLS ========== -->
+<section id="skills">
+    <div class="container">
+        <div class="section-header centered">
+            <div class="section-label">— My Expertise</div>
+            <h2 class="section-title">Skills & Tools</h2>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skills-col">
+                <h3 class="skills-col-title">Design Tools</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Adobe Photoshop</span>
+                        <span class="skill-pct">90%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Adobe Illustrator</span>
+                        <span class="skill-pct">85%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Figma</span>
+                        <span class="skill-pct">80%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-bar-fill" data-width="80"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">InDesign</span>
+                        <span class="skill-pct">75%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-bar-fill" data-width="75"></div></div>
+                </div>
+            </div>
+
+            <div class="skills-col">
+                <h3 class="skills-col-title">Animation & 3D</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">After Effects</span>
+                        <span class="skill-pct">88%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-bar-fill skill-bar-pink" data-width="88"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Premiere Pro</span>
+                        <span class="skill-pct">82%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-bar-fill skill-bar-pink" data-width="82"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Blender</span>
+                        <span class="skill-pct">70%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-bar-fill skill-bar-pink" data-width="70"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Cinema 4D</span>
+                        <span class="skill-pct">65%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-bar-fill skill-bar-pink" data-width="65"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="skills-tags">
+            <span class="skill-tag">Typography</span>
+            <span class="skill-tag">Color Theory</span>
+            <span class="skill-tag">Motion Graphics</span>
+            <span class="skill-tag">Brand Identity</span>
+            <span class="skill-tag">UI/UX Design</span>
+            <span class="skill-tag">Visual Storytelling</span>
+            <span class="skill-tag">Art Direction</span>
+            <span class="skill-tag">Storyboarding</span>
+            <span class="skill-tag">Character Design</span>
+            <span class="skill-tag">Poster Design</span>
+        </div>
+    </div>
+</section>
+
+<!-- ========== CV ========== -->
+<section id="cv">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">— Background</div>
+            <h2 class="section-title">Experience &<br><em>Education</em></h2>
+        </div>
+
+        <div class="cv-grid">
+            <div class="cv-col">
+                <h3 class="cv-col-title"><span class="accent-yellow">✦</span> Education</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">2021 — Σήμερα</span>
+                            <h4 class="timeline-title">Γραφιστική & Animation</h4>
+                            <p class="timeline-place">Σχολή Γραφιστικών Τεχνών</p>
+                            <p class="timeline-desc">Σπουδές σε visual communication, motion design, 3D animation και brand identity.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">2020</span>
+                            <h4 class="timeline-title">Certificate in UI/UX Design</h4>
+                            <p class="timeline-place">Google / Coursera</p>
+                            <p class="timeline-desc">User experience principles, wireframing, prototyping και usability testing.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">2019</span>
+                            <h4 class="timeline-title">Adobe Certified Expert</h4>
+                            <p class="timeline-place">Adobe Education</p>
+                            <p class="timeline-desc">Photoshop, Illustrator & After Effects certification.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cv-col">
+                <h3 class="cv-col-title"><span class="accent-pink">✦</span> Experience</h3>
+                <div class="timeline timeline-pink">
+                    <div class="timeline-item">
+                        <div class="timeline-dot pink"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">2023 — Σήμερα</span>
+                            <h4 class="timeline-title">Freelance Designer</h4>
+                            <p class="timeline-place">Self-employed</p>
+                            <p class="timeline-desc">Brand identities, motion graphics και visual content για διάφορους clients.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot pink"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">2022 — 2023</span>
+                            <h4 class="timeline-title">Junior Graphic Designer</h4>
+                            <p class="timeline-place">Creative Studio Athens</p>
+                            <p class="timeline-desc">Social media content, print design και motion graphics για εταιρικούς πελάτες.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot pink"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">2021</span>
+                            <h4 class="timeline-title">Design Intern</h4>
+                            <p class="timeline-place">Digital Agency</p>
+                            <p class="timeline-desc">Υποστήριξη της ομάδας δημιουργικού σε καμπάνιες digital marketing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cv-download">
+            <p>Θέλεις να δεις το πλήρες βιογραφικό μου;</p>
+            <a href="#" class="btn-primary magnetic">
+                <svg viewBox="0 0 24 24" style="stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;width:18px;height:18px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span>Download CV</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section id="contact">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="section-label">— Let's Work Together</div>
+                <h2 class="section-title contact-title">Have a project<br>in mind?</h2>
+                <p class="contact-desc">
+                    Είμαι πάντα ανοιχτή σε νέα projects και συνεργασίες.
+                    Ας μιλήσουμε για το τι έχεις στο μυαλό σου!
+                </p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <span class="contact-icon">✉</span>
+                        <a href="mailto:maria@email.com">maria@email.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">↗</span>
+                        <a href="#">behance.net/maria</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">◎</span>
+                        <span>Athens, Greece</span>
+                    </div>
+                </div>
+                <div class="contact-social">
+                    <a href="#" class="social-pill magnetic">Behance</a>
+                    <a href="#" class="social-pill magnetic">Instagram</a>
+                    <a href="#" class="social-pill magnetic">LinkedIn</a>
+                </div>
+            </div>
+
+            <div class="contact-form-wrap">
+                <form class="contact-form" id="contactForm" novalidate>
+                    <div class="form-group">
+                        <input type="text" id="nameInput" placeholder=" " required autocomplete="off">
+                        <label for="nameInput">Το όνομά σου</label>
+                        <div class="form-line"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="emailInput" placeholder=" " required autocomplete="off">
+                        <label for="emailInput">Email</label>
+                        <div class="form-line"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subjectInput" placeholder=" " autocomplete="off">
+                        <label for="subjectInput">Θέμα</label>
+                        <div class="form-line"></div>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="messageInput" rows="4" placeholder=" " required></textarea>
+                        <label for="messageInput">Το μήνυμά σου</label>
+                        <div class="form-line"></div>
+                    </div>
+                    <button type="submit" class="btn-primary form-submit magnetic">
+                        <span>Send Message</span>
+                        <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-logo">M<span class="accent-yellow">.</span></div>
+            <p class="footer-copy">© 2024 Maria — All rights reserved</p>
+            <div class="footer-links">
+                <a href="#hero">Top ↑</a>
+                <a href="#works">Works</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
