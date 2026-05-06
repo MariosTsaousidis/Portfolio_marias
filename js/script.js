@@ -498,33 +498,84 @@ function initContactForm() {
     const form = document.getElementById('contactForm');
     if (!form) return;
 
-    form.addEventListener('submit', e => {
+    form.addEventListener('submit', async e => {
         e.preventDefault();
+
         const btn  = form.querySelector('.form-submit');
         const span = btn.querySelector('span');
         const orig = span.textContent;
 
-        span.textContent = 'Sending...';
-        btn.disabled = true;
-        btn.style.opacity = '0.75';
+        const name    = document.getElementById('nameInput').value.trim();
+        const email   = document.getElementById('emailInput').value.trim();
+        const subject = document.getElementById('subjectInput').value.trim();
+        const message = document.getElementById('messageInput').value.trim();
 
-        setTimeout(() => {
-            span.textContent = 'Sent ✓';
-            btn.style.background   = '#4ade80';
+        // Basic client-side validation
+        if (!name || !email || !message) {
+            showFormError('Παρακαλώ συμπλήρωσε τα υποχρεωτικά πεδία.');
+            return;
+        }
+
+        span.textContent  = 'Αποστολή...';
+        btn.disabled      = true;
+        btn.style.opacity = '0.7';
+
+        try {
+            const res  = await fetch('/api/contact', {
+                method:  'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body:    JSON.stringify({ name, email, subject, message })
+            });
+
+            const data = await res.json();
+
+            if (res.ok && data.success) {
+                // Success state
+                span.textContent       = 'Εστάλη ✓';
+                btn.style.background   = '#4ade80';
+                btn.style.opacity      = '1';
+                btn.style.color        = '#000';
+
+                setTimeout(() => {
+                    span.textContent     = orig;
+                    btn.style.background = '';
+                    btn.style.color      = '';
+                    btn.disabled         = false;
+                    form.reset();
+                    removeFormError();
+                }, 4000);
+            } else {
+                throw new Error(data.error || 'Σφάλμα αποστολής.');
+            }
+        } catch (err) {
+            span.textContent       = 'Σφάλμα ✗';
+            btn.style.background   = '#ef4444';
             btn.style.opacity      = '1';
-            btn.style.color        = '#000';
-            btn.style.borderColor  = '#4ade80';
+            btn.style.color        = '#fff';
+            showFormError(err.message || 'Αποτυχία. Δοκίμασε ξανά.');
 
             setTimeout(() => {
-                span.textContent         = orig;
-                btn.style.background     = '';
-                btn.style.color          = '';
-                btn.style.borderColor    = '';
-                btn.disabled             = false;
-                form.reset();
-            }, 3200);
-        }, 1600);
+                span.textContent     = orig;
+                btn.style.background = '';
+                btn.style.color      = '';
+                btn.disabled         = false;
+            }, 3000);
+        }
     });
+
+    function showFormError(msg) {
+        removeFormError();
+        const el = document.createElement('p');
+        el.id = 'formError';
+        el.textContent = msg;
+        el.style.cssText = 'color:#ef4444;font-size:0.85rem;margin-top:12px;font-family:var(--font-mono);';
+        form.appendChild(el);
+    }
+
+    function removeFormError() {
+        const el = document.getElementById('formError');
+        if (el) el.remove();
+    }
 }
 
 /* ==========================================
