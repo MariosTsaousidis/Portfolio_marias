@@ -10,6 +10,9 @@ const PORT = process.env.PORT || 3000;
 /* ==========================================
    Middleware
    ========================================== */
+// Needed for Railway / any reverse-proxy host (fixes X-Forwarded-For warning)
+app.set('trust proxy', 1);
+
 app.use(express.json());
 app.use(express.static(path.join(__dirname)));
 
